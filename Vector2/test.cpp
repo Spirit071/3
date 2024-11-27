@@ -4,18 +4,20 @@
 int main() {
     Vector vec(3);
 
-    vec.push_back(10);
-    vec.push_back(20);
-    vec.push_back(30);
-    vec.push_back(40); // Forces reallocation
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
 
-    std::cout << "Size: " << vec.size() << ", Capacity: " << vec.capacity() << std::endl;
+    std::cout << "Before resize: Size = " << vec.size() << ", Capacity = " << vec.capacity() << std::endl;
 
-    std::cout << "Popped: " << vec.pop_back() << std::endl;
-    std::cout << "Size after pop: " << vec.size() << std::endl;
+    vec.resize(5);
+    std::cout << "After resize (5): Size = " << vec.size() << ", Capacity = " << vec.capacity() << std::endl;
 
-    vec.reserve(10);
-    std::cout << "Capacity after reserve: " << vec.capacity() << std::endl;
+    vec.resize(7, 99);
+    std::cout << "After resize (7, 99): Size = " << vec.size() << ", Capacity = " << vec.capacity() << std::endl;
+
+    vec.resize(2);
+    std::cout << "After resize (2): Size = " << vec.size() << ", Capacity = " << vec.capacity() << std::endl;
 
     return 0;
 }

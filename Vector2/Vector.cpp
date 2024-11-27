@@ -60,3 +60,29 @@ void Vector::reserve(int n) {
         reallocate(newCapacity);
     }
 }
+
+void Vector::resize(int n) {
+    if (n <= _capacity) {
+        _size = n;
+    } else {
+        reserve(n);
+        _size = n;
+    }
+}
+
+void Vector::resize(int n, const int& val) {
+    if (n <= _capacity) {
+        if (n > _size) {
+            for (int i = _size; i < n; ++i) {
+                _elements[i] = val;
+            }
+        }
+        _size = n;
+    } else {
+        reserve(n);
+        for (int i = _size; i < n; ++i) {
+            _elements[i] = val;
+        }
+        _size = n;
+    }
+}

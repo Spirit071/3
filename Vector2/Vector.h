@@ -22,6 +22,9 @@ public:
     void push_back(const int& val);
     int pop_back();
     void reserve(int n);
+
+    void resize(int n);
+    void resize(int n, const int& val);
 };
 
 #endif // VECTOR_H
